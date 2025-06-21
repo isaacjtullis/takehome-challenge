@@ -11,6 +11,19 @@ A full-stack application for managing and visualizing treasury yield curve data.
 - **Database**: SQLite with Prisma ORM
 - **Development**: Concurrently for running both frontend/backend
 
+## Thought Process & What I Would Build With More Time
+- Overall, I'm happy with the general structure and feel of the application. A clean, mobile friendly application that utalizes Shadcn/ui to make the designs come to life (animation, toast messages, loading icons). On the backend, we are using SQLite to have an embedded database. 
+
+## Tech Debt:
+- Limited test coverage.
+- Caching for treasury data (a quick win would be to save the data in the db and we could do a look up vs calling the public api to get this data.) This would immediately speed up the data on hard refresh and limit api calls. We are using react-query to cache data on the FE but this doesn't persist on hard refresh. 
+- No authentication or user generation. This limits the power of knowing who is creating the orders and any guard rails for api usage. 
+
+- We are validating the input on the FE but not validating it on the BE 
+
+- API calls. I'm utalizing a free API given by the U.S. Department of the Treasury. I went with this as it was free and open to the public (did not require an API key). 
+- 
+
 ## Project Structure
 
 ```
