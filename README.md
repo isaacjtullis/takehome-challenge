@@ -38,6 +38,7 @@ A full-stack application for managing and visualizing treasury yield curve data.
    ```
 
 2. **Set up the database && Generate Prisma Client:**
+If you haven't already, you will be prompted to install Prisma at this step, choose Y.
    ```bash
    cd server
    npx prisma migrate dev
@@ -45,6 +46,7 @@ A full-stack application for managing and visualizing treasury yield curve data.
    ```
 
 3. **Start development servers:**
+From the root repository run:
    ```bash
    npm run dev
    ```
