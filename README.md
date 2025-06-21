@@ -17,7 +17,7 @@ A full-stack application for managing and visualizing treasury yield curve data.
 ## If "I had more time" list:
 - Caching for treasury data (a quick win would be to save the data in the db and we could do a look up vs calling the public api to get this data.) This would immediately speed up the data on hard refresh and limit api calls. We are using react-query to cache data on the FE but this doesn't persist on hard refresh. 
 - Limited test coverage. I would bump up test coverage for the FE and BE.
-- Add authentication. Right now, anyone can post orders. Adding auth would let us track who’s doing what.
+- Add authentication. Right now, anyone can post orders. Adding auth would let us track who's doing what.
 - API calls. I'm utalizing a free API given by the U.S. Department of the Treasury. I went with this as it was free and open to the public (did not require an API key). But I'd explore more reliable or commercial data sources for production use.
 - Harden the backend. Our error handling is pretty limited. This coudld be expanded to look for edge cases, retries, and improve logging.
 
@@ -38,24 +38,27 @@ A full-stack application for managing and visualizing treasury yield curve data.
    ```
 
 2. **Set up the database && Generate Prisma Client:**
-If you haven't already, you will be prompted to install Prisma at this step, choose Y.
+
+If you haven't already, you will be prompted to install Prisma at this step. Choose `Y` to proceed.
    ```bash
    cd server
    npx prisma migrate dev
    npx prisma generate
    ```
 
-3. **Start development servers:**
-From the root repository run:
+3. **Start development servers**
+
+From the root of the repository, run:
    ```bash
    npm run dev
    ```
+   
+This will start both the frontend and backend servers concurrently.
 
-4. **Access the application:**
-   - Frontend: http://localhost:5173
-   - Backend API: http://localhost:3000
+- Frontend available at `http://localhost:5173`
+- Backend available at `http://localhost:3000`
 
-5. **To Run Tests**
+4. **To Run Tests**
    ```bash
    cd client
    npm test
