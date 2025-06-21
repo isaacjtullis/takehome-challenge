@@ -1,6 +1,5 @@
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -30,7 +29,7 @@ export const OrderHistory = ({ orders }: { orders: Order[] }) => {
 
   if (!orders || orders.length === 0) {
     return (
-      <Card>
+      <Card data-testid="order-history-no-orders">
         <CardHeader>
           <CardTitle>Order History</CardTitle>
           <CardDescription>No recent treasury orders found.</CardDescription>
@@ -65,7 +64,7 @@ export const OrderHistory = ({ orders }: { orders: Order[] }) => {
 
   return (
     <Card>
-      <CardHeader className="border-b-2 border-black-300">
+      <CardHeader className="border-b-2 border-black-300" data-testid="order-history">
         <CardTitle>Order History</CardTitle>
         <CardDescription>Recent treasury orders</CardDescription>
       </CardHeader>

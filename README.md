@@ -11,18 +11,15 @@ A full-stack application for managing and visualizing treasury yield curve data.
 - **Database**: SQLite with Prisma ORM
 - **Development**: Concurrently for running both frontend/backend
 
-## Thought Process & What I Would Build With More Time
-- Overall, I'm happy with the general structure and feel of the application. A clean, mobile friendly application that utalizes Shadcn/ui to make the designs come to life (animation, toast messages, loading icons). On the backend, we are using SQLite to have an embedded database. 
+## Thought Process & Future Improvements
+- Overall, I'm happy with the general structure and feel of the application. A clean, mobile friendly application that utalizes Shadcn/ui to make the designs come to life (animation, toast messages, loading icons). The backend is powered by a simple Express + SQLite setup to make onboarding easy and migrations painless.
 
-## Tech Debt:
-- Limited test coverage.
+## If "I had more time" list:
 - Caching for treasury data (a quick win would be to save the data in the db and we could do a look up vs calling the public api to get this data.) This would immediately speed up the data on hard refresh and limit api calls. We are using react-query to cache data on the FE but this doesn't persist on hard refresh. 
-- No authentication or user generation. This limits the power of knowing who is creating the orders and any guard rails for api usage. 
-
-- We are validating the input on the FE but not validating it on the BE 
-
-- API calls. I'm utalizing a free API given by the U.S. Department of the Treasury. I went with this as it was free and open to the public (did not require an API key). 
-- 
+- Limited test coverage. I would bump up test coverage for the FE and BE.
+- Add authentication. Right now, anyone can post orders. Adding auth would let us track who’s doing what.
+- API calls. I'm utalizing a free API given by the U.S. Department of the Treasury. I went with this as it was free and open to the public (did not require an API key). But I'd explore more reliable or commercial data sources for production use.
+- Harden the backend. Our error handling is pretty limited. This coudld be expanded to look for edge cases, retries, and improve logging.
 
 ## Project Structure
 
@@ -55,6 +52,12 @@ A full-stack application for managing and visualizing treasury yield curve data.
 4. **Access the application:**
    - Frontend: http://localhost:5173
    - Backend API: http://localhost:3000
+
+5. **To Run Tests**
+   ```bash
+   cd client
+   npm test
+   ```
 
 ## Database Setup
 
@@ -90,7 +93,7 @@ We are using SQLite in this take home challenge. These are the models we created
 - **Order**: Stores treasury orders with term, amount, rate, and customer relationship
 - **YieldCurve**: TODO: Stores cached yield curve data (not used in simplified version) 
 
-## Available Scripts
+## Dev Scripts
 
 - `npm run dev` - Start both frontend and backend in development mode
 - `npm run install:all` - Install dependencies for all packages

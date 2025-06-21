@@ -8,6 +8,7 @@ interface Order {
   term: string
   amount: number
   createdAt: string
+  rate: number
 }
 
 export const Orders = () => {
